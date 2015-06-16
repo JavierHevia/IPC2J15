@@ -112,18 +112,49 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Update">
+      <s:element name="Prestamo">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="prestamolibro" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="NombreLibro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Disponible" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Prestado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codlibro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TopPrestamo" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateResponse">
+      <s:element name="PrestamoResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateResult">
+            <s:element minOccurs="1" maxOccurs="1" name="PrestamoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrestamoC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="carnet" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PrestamoCliente" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrestamoCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PrestamoCResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDMask" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPedidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPedidoResult">
               <s:complexType>
                 <s:annotation>
                   <s:appinfo>
@@ -136,6 +167,21 @@
                 </s:sequence>
               </s:complexType>
             </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UptadtePrestamo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Prestado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="codlibro" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UptadtePrestamoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UptadtePrestamoResult" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -177,11 +223,29 @@
   <wsdl:message name="ordenarSoapOut">
     <wsdl:part name="parameters" element="tns:ordenarResponse" />
   </wsdl:message>
-  <wsdl:message name="UpdateSoapIn">
-    <wsdl:part name="parameters" element="tns:Update" />
+  <wsdl:message name="PrestamoSoapIn">
+    <wsdl:part name="parameters" element="tns:Prestamo" />
   </wsdl:message>
-  <wsdl:message name="UpdateSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  <wsdl:message name="PrestamoSoapOut">
+    <wsdl:part name="parameters" element="tns:PrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrestamoCSoapIn">
+    <wsdl:part name="parameters" element="tns:PrestamoC" />
+  </wsdl:message>
+  <wsdl:message name="PrestamoCSoapOut">
+    <wsdl:part name="parameters" element="tns:PrestamoCResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPedido" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UptadtePrestamoSoapIn">
+    <wsdl:part name="parameters" element="tns:UptadtePrestamo" />
+  </wsdl:message>
+  <wsdl:message name="UptadtePrestamoSoapOut">
+    <wsdl:part name="parameters" element="tns:UptadtePrestamoResponse" />
   </wsdl:message>
   <wsdl:portType name="ServiceSoap">
     <wsdl:operation name="conectarServidor">
@@ -208,9 +272,21 @@
       <wsdl:input message="tns:ordenarSoapIn" />
       <wsdl:output message="tns:ordenarSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <wsdl:input message="tns:UpdateSoapIn" />
-      <wsdl:output message="tns:UpdateSoapOut" />
+    <wsdl:operation name="Prestamo">
+      <wsdl:input message="tns:PrestamoSoapIn" />
+      <wsdl:output message="tns:PrestamoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrestamoC">
+      <wsdl:input message="tns:PrestamoCSoapIn" />
+      <wsdl:output message="tns:PrestamoCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPedido">
+      <wsdl:input message="tns:BuscarPedidoSoapIn" />
+      <wsdl:output message="tns:BuscarPedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UptadtePrestamo">
+      <wsdl:input message="tns:UptadtePrestamoSoapIn" />
+      <wsdl:output message="tns:UptadtePrestamoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
@@ -269,8 +345,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <soap:operation soapAction="http://localhost:1240/Service.asmx/Update" style="document" />
+    <wsdl:operation name="Prestamo">
+      <soap:operation soapAction="http://localhost:1240/Service.asmx/Prestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestamoC">
+      <soap:operation soapAction="http://localhost:1240/Service.asmx/PrestamoC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPedido">
+      <soap:operation soapAction="http://localhost:1240/Service.asmx/BuscarPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UptadtePrestamo">
+      <soap:operation soapAction="http://localhost:1240/Service.asmx/UptadtePrestamo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -335,8 +438,35 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Update">
-      <soap12:operation soapAction="http://localhost:1240/Service.asmx/Update" style="document" />
+    <wsdl:operation name="Prestamo">
+      <soap12:operation soapAction="http://localhost:1240/Service.asmx/Prestamo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrestamoC">
+      <soap12:operation soapAction="http://localhost:1240/Service.asmx/PrestamoC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPedido">
+      <soap12:operation soapAction="http://localhost:1240/Service.asmx/BuscarPedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UptadtePrestamo">
+      <soap12:operation soapAction="http://localhost:1240/Service.asmx/UptadtePrestamo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -72,6 +72,7 @@ namespace Practica1
 
 
             dataGridView1.Update();
+            
         
         }
        

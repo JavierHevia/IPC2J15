@@ -14,10 +14,13 @@ namespace Practica1
         public Pedidos()
         {
             InitializeComponent();
+            this.txtfechai.Text = this.monthCalendar1.SelectionRange.Start.ToShortDateString();
         }
 
         private void Pedidos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'whizzDataSet3.Prestamo' Puede moverla o quitarla según sea necesario.
+            this.prestamoTableAdapter1.Fill(this.whizzDataSet3.Prestamo);
             // TODO: esta línea de código carga datos en la tabla 'whizzDataSet2.Libro' Puede moverla o quitarla según sea necesario.
             this.libroTableAdapter1.Fill(this.whizzDataSet2.Libro);
             // TODO: esta línea de código carga datos en la tabla 'whizzDataSet2libro.Libro' Puede moverla o quitarla según sea necesario.
@@ -29,7 +32,7 @@ namespace Practica1
         ServiceReference1.ServiceSoapClient servicio = new ServiceReference1.ServiceSoapClient();
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dgpedidos.DataSource = servicio.BuscarLibro(txtpedidos.Text);
+            dgpedidos.DataSource = servicio.BuscarPedido(txtpedidos.Text);
 
             dgpedidos.DataMember = "Libro";
 
@@ -47,7 +50,51 @@ namespace Practica1
         {
 
 
+            int codl, nocarnet;
+
+            codl = Convert.ToInt32(txtCodLibro.Text);
+            nocarnet = Convert.ToInt32(txtNoCarnet.Text);
+            String pr = "Prestamo";
+
+            String Tabla = "Prestamo";
+            String Campos = "Tipo,FechaInicio,FechaFin,Cod_Libro,[No.Carnet]";
+            String Valores = "'" + pr + "','" + txtfechai.Text + "','" + txtfechafin.Text + "','" + codl + "','" + nocarnet  + "'";
+
+            if (servicio.Registrar(Tabla, Campos, Valores))
+            {
+
+                MessageBox.Show("Pedido Guardado");
+              
+                dgpedidos.Update();
+
+                txtNoCarnet.Text = "";
+                txtCodLibro.Text = "";
+                txtfechafin.Text = "";
+                txtfechai.Text = "";
+                
+
+
+            }
+            else
+            {
+                //Response.Write(cq.MostrarError);
+                MessageBox.Show("Error");
+
+            }
+
+
+
             
+        }
+
+        private void txtfechai_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            txtfechafin.Text = monthCalendar1.SelectionEnd.ToShortDateString(); 
         }
 
        

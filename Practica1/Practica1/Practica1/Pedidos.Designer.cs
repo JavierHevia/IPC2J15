@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgpedidos = new System.Windows.Forms.DataGridView();
-            this.NombreL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Autor1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExistenciaEnBiblioteca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disponibleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reservadosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libroBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.whizzDataSet2 = new Practica1.WhizzDataSet2();
             this.whizzDataSetPrestamo = new Practica1.WhizzDataSetPrestamo();
@@ -52,6 +46,21 @@
             this.txtNoCarnet = new System.Windows.Forms.TextBox();
             this.txtCodLibro = new System.Windows.Forms.TextBox();
             this.btperdir = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtfechai = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtfechafin = new System.Windows.Forms.TextBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.whizzDataSet3 = new Practica1.WhizzDataSet3();
+            this.prestamoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamoTableAdapter1 = new Practica1.WhizzDataSet3TableAdapters.PrestamoTableAdapter();
+            this.label6 = new System.Windows.Forms.Label();
+            this.codPrestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaFinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codLibroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noCarnetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgpedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.whizzDataSet2)).BeginInit();
@@ -59,61 +68,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.whizzDataSet2libro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.whizzDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgpedidos
             // 
-            this.dgpedidos.AllowUserToDeleteRows = false;
             this.dgpedidos.AutoGenerateColumns = false;
             this.dgpedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgpedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NombreL,
-            this.Autor1,
-            this.ExistenciaEnBiblioteca,
-            this.disponibleDataGridViewTextBoxColumn,
-            this.prestamoDataGridViewTextBoxColumn,
-            this.reservadosDataGridViewTextBoxColumn});
-            this.dgpedidos.DataSource = this.libroBindingSource1;
-            this.dgpedidos.Location = new System.Drawing.Point(1, 47);
+            this.codPrestamoDataGridViewTextBoxColumn,
+            this.tipoDataGridViewTextBoxColumn,
+            this.fechaInicioDataGridViewTextBoxColumn,
+            this.fechaFinDataGridViewTextBoxColumn,
+            this.codLibroDataGridViewTextBoxColumn,
+            this.noCarnetDataGridViewTextBoxColumn});
+            this.dgpedidos.DataSource = this.prestamoBindingSource1;
+            this.dgpedidos.Location = new System.Drawing.Point(-29, 43);
             this.dgpedidos.Name = "dgpedidos";
-            this.dgpedidos.Size = new System.Drawing.Size(643, 150);
+            this.dgpedidos.Size = new System.Drawing.Size(663, 150);
             this.dgpedidos.TabIndex = 0;
-            // 
-            // NombreL
-            // 
-            this.NombreL.DataPropertyName = "NombreL";
-            this.NombreL.HeaderText = "NombreL";
-            this.NombreL.Name = "NombreL";
-            // 
-            // Autor1
-            // 
-            this.Autor1.DataPropertyName = "Autor1";
-            this.Autor1.HeaderText = "Autor1";
-            this.Autor1.Name = "Autor1";
-            // 
-            // ExistenciaEnBiblioteca
-            // 
-            this.ExistenciaEnBiblioteca.DataPropertyName = "ExistenciaEnBiblioteca";
-            this.ExistenciaEnBiblioteca.HeaderText = "ExistenciaEnBiblioteca";
-            this.ExistenciaEnBiblioteca.Name = "ExistenciaEnBiblioteca";
-            // 
-            // disponibleDataGridViewTextBoxColumn
-            // 
-            this.disponibleDataGridViewTextBoxColumn.DataPropertyName = "Disponible";
-            this.disponibleDataGridViewTextBoxColumn.HeaderText = "Disponible";
-            this.disponibleDataGridViewTextBoxColumn.Name = "disponibleDataGridViewTextBoxColumn";
-            // 
-            // prestamoDataGridViewTextBoxColumn
-            // 
-            this.prestamoDataGridViewTextBoxColumn.DataPropertyName = "Prestamo";
-            this.prestamoDataGridViewTextBoxColumn.HeaderText = "Prestamo";
-            this.prestamoDataGridViewTextBoxColumn.Name = "prestamoDataGridViewTextBoxColumn";
-            // 
-            // reservadosDataGridViewTextBoxColumn
-            // 
-            this.reservadosDataGridViewTextBoxColumn.DataPropertyName = "Reservados";
-            this.reservadosDataGridViewTextBoxColumn.HeaderText = "Reservados";
-            this.reservadosDataGridViewTextBoxColumn.Name = "reservadosDataGridViewTextBoxColumn";
             // 
             // libroBindingSource1
             // 
@@ -177,7 +151,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 213);
+            this.label2.Location = new System.Drawing.Point(12, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 3;
@@ -186,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(57, 249);
+            this.label3.Location = new System.Drawing.Point(15, 246);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 4;
@@ -194,7 +168,7 @@
             // 
             // txtNoCarnet
             // 
-            this.txtNoCarnet.Location = new System.Drawing.Point(191, 213);
+            this.txtNoCarnet.Location = new System.Drawing.Point(149, 210);
             this.txtNoCarnet.Name = "txtNoCarnet";
             this.txtNoCarnet.Size = new System.Drawing.Size(100, 20);
             this.txtNoCarnet.TabIndex = 5;
@@ -202,14 +176,14 @@
             // 
             // txtCodLibro
             // 
-            this.txtCodLibro.Location = new System.Drawing.Point(191, 249);
+            this.txtCodLibro.Location = new System.Drawing.Point(149, 246);
             this.txtCodLibro.Name = "txtCodLibro";
             this.txtCodLibro.Size = new System.Drawing.Size(100, 20);
             this.txtCodLibro.TabIndex = 6;
             // 
             // btperdir
             // 
-            this.btperdir.Location = new System.Drawing.Point(350, 245);
+            this.btperdir.Location = new System.Drawing.Point(149, 350);
             this.btperdir.Name = "btperdir";
             this.btperdir.Size = new System.Drawing.Size(75, 23);
             this.btperdir.TabIndex = 7;
@@ -217,11 +191,116 @@
             this.btperdir.UseVisualStyleBackColor = true;
             this.btperdir.Click += new System.EventHandler(this.btperdir_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 280);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Fecha Inicio";
+            // 
+            // txtfechai
+            // 
+            this.txtfechai.Location = new System.Drawing.Point(149, 280);
+            this.txtfechai.Name = "txtfechai";
+            this.txtfechai.Size = new System.Drawing.Size(100, 20);
+            this.txtfechai.TabIndex = 9;
+            this.txtfechai.TextChanged += new System.EventHandler(this.txtfechai_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 318);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "FechaFin";
+            // 
+            // txtfechafin
+            // 
+            this.txtfechafin.Location = new System.Drawing.Point(149, 318);
+            this.txtfechafin.Name = "txtfechafin";
+            this.txtfechafin.Size = new System.Drawing.Size(100, 20);
+            this.txtfechafin.TabIndex = 11;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(390, 205);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 12;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            // 
+            // whizzDataSet3
+            // 
+            this.whizzDataSet3.DataSetName = "WhizzDataSet3";
+            this.whizzDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // prestamoBindingSource1
+            // 
+            this.prestamoBindingSource1.DataMember = "Prestamo";
+            this.prestamoBindingSource1.DataSource = this.whizzDataSet3;
+            // 
+            // prestamoTableAdapter1
+            // 
+            this.prestamoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(276, 321);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Selecionar Fecha ->";
+            // 
+            // codPrestamoDataGridViewTextBoxColumn
+            // 
+            this.codPrestamoDataGridViewTextBoxColumn.DataPropertyName = "Cod_Prestamo";
+            this.codPrestamoDataGridViewTextBoxColumn.HeaderText = "Cod_Prestamo";
+            this.codPrestamoDataGridViewTextBoxColumn.Name = "codPrestamoDataGridViewTextBoxColumn";
+            // 
+            // tipoDataGridViewTextBoxColumn
+            // 
+            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "Tipo";
+            this.tipoDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            // 
+            // fechaInicioDataGridViewTextBoxColumn
+            // 
+            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "FechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "FechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
+            // 
+            // fechaFinDataGridViewTextBoxColumn
+            // 
+            this.fechaFinDataGridViewTextBoxColumn.DataPropertyName = "FechaFin";
+            this.fechaFinDataGridViewTextBoxColumn.HeaderText = "FechaFin";
+            this.fechaFinDataGridViewTextBoxColumn.Name = "fechaFinDataGridViewTextBoxColumn";
+            // 
+            // codLibroDataGridViewTextBoxColumn
+            // 
+            this.codLibroDataGridViewTextBoxColumn.DataPropertyName = "Cod_Libro";
+            this.codLibroDataGridViewTextBoxColumn.HeaderText = "Cod_Libro";
+            this.codLibroDataGridViewTextBoxColumn.Name = "codLibroDataGridViewTextBoxColumn";
+            // 
+            // noCarnetDataGridViewTextBoxColumn
+            // 
+            this.noCarnetDataGridViewTextBoxColumn.DataPropertyName = "No_Carnet";
+            this.noCarnetDataGridViewTextBoxColumn.HeaderText = "No_Carnet";
+            this.noCarnetDataGridViewTextBoxColumn.Name = "noCarnetDataGridViewTextBoxColumn";
+            // 
             // Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 342);
+            this.ClientSize = new System.Drawing.Size(625, 385);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.txtfechafin);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtfechai);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btperdir);
             this.Controls.Add(this.txtCodLibro);
             this.Controls.Add(this.txtNoCarnet);
@@ -240,6 +319,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.whizzDataSet2libro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.whizzDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,16 +340,25 @@
         private WhizzDataSet2 whizzDataSet2;
         private System.Windows.Forms.BindingSource libroBindingSource1;
         private WhizzDataSet2TableAdapters.LibroTableAdapter libroTableAdapter1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Autor1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExistenciaEnBiblioteca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn disponibleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prestamoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reservadosDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNoCarnet;
         private System.Windows.Forms.TextBox txtCodLibro;
         private System.Windows.Forms.Button btperdir;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtfechai;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtfechafin;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private WhizzDataSet3 whizzDataSet3;
+        private System.Windows.Forms.BindingSource prestamoBindingSource1;
+        private WhizzDataSet3TableAdapters.PrestamoTableAdapter prestamoTableAdapter1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codPrestamoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codLibroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noCarnetDataGridViewTextBoxColumn;
     }
 }

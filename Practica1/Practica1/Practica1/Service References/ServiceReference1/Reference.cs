@@ -38,9 +38,21 @@ namespace Practica1.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost:1240/Service.asmx/ordenar", ReplyAction="*")]
         Practica1.ServiceReference1.ordenarResponse ordenar(Practica1.ServiceReference1.ordenarRequest request);
         
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento NombreLibro del espacio de nombres http://localhost:1240/Service.asmx no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:1240/Service.asmx/Update", ReplyAction="*")]
-        Practica1.ServiceReference1.UpdateResponse Update(Practica1.ServiceReference1.UpdateRequest request);
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento codlibro del espacio de nombres http://localhost:1240/Service.asmx no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:1240/Service.asmx/Prestamo", ReplyAction="*")]
+        Practica1.ServiceReference1.PrestamoResponse Prestamo(Practica1.ServiceReference1.PrestamoRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento carnet del espacio de nombres http://localhost:1240/Service.asmx no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:1240/Service.asmx/PrestamoC", ReplyAction="*")]
+        Practica1.ServiceReference1.PrestamoCResponse PrestamoC(Practica1.ServiceReference1.PrestamoCRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento IDMask del espacio de nombres http://localhost:1240/Service.asmx no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:1240/Service.asmx/BuscarPedido", ReplyAction="*")]
+        Practica1.ServiceReference1.BuscarPedidoResponse BuscarPedido(Practica1.ServiceReference1.BuscarPedidoRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento codlibro del espacio de nombres http://localhost:1240/Service.asmx no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost:1240/Service.asmx/UptadtePrestamo", ReplyAction="*")]
+        Practica1.ServiceReference1.UptadtePrestamoResponse UptadtePrestamo(Practica1.ServiceReference1.UptadtePrestamoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -381,15 +393,15 @@ namespace Practica1.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateRequest {
+    public partial class PrestamoRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Update", Namespace="http://localhost:1240/Service.asmx", Order=0)]
-        public Practica1.ServiceReference1.UpdateRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Prestamo", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.PrestamoRequestBody Body;
         
-        public UpdateRequest() {
+        public PrestamoRequest() {
         }
         
-        public UpdateRequest(Practica1.ServiceReference1.UpdateRequestBody Body) {
+        public PrestamoRequest(Practica1.ServiceReference1.PrestamoRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -398,20 +410,28 @@ namespace Practica1.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
-    public partial class UpdateRequestBody {
+    public partial class PrestamoRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int prestamolibro;
+        public int Disponible;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string NombreLibro;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int Prestado;
         
-        public UpdateRequestBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string codlibro;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int TopPrestamo;
+        
+        public PrestamoRequestBody() {
         }
         
-        public UpdateRequestBody(int prestamolibro, string NombreLibro) {
-            this.prestamolibro = prestamolibro;
-            this.NombreLibro = NombreLibro;
+        public PrestamoRequestBody(int Disponible, int Prestado, string codlibro, int TopPrestamo) {
+            this.Disponible = Disponible;
+            this.Prestado = Prestado;
+            this.codlibro = codlibro;
+            this.TopPrestamo = TopPrestamo;
         }
     }
     
@@ -419,15 +439,15 @@ namespace Practica1.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateResponse {
+    public partial class PrestamoResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateResponse", Namespace="http://localhost:1240/Service.asmx", Order=0)]
-        public Practica1.ServiceReference1.UpdateResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="PrestamoResponse", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.PrestamoResponseBody Body;
         
-        public UpdateResponse() {
+        public PrestamoResponse() {
         }
         
-        public UpdateResponse(Practica1.ServiceReference1.UpdateResponseBody Body) {
+        public PrestamoResponse(Practica1.ServiceReference1.PrestamoResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -436,16 +456,228 @@ namespace Practica1.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
-    public partial class UpdateResponseBody {
+    public partial class PrestamoResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Data.DataSet UpdateResult;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool PrestamoResult;
         
-        public UpdateResponseBody() {
+        public PrestamoResponseBody() {
         }
         
-        public UpdateResponseBody(System.Data.DataSet UpdateResult) {
-            this.UpdateResult = UpdateResult;
+        public PrestamoResponseBody(bool PrestamoResult) {
+            this.PrestamoResult = PrestamoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class PrestamoCRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="PrestamoC", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.PrestamoCRequestBody Body;
+        
+        public PrestamoCRequest() {
+        }
+        
+        public PrestamoCRequest(Practica1.ServiceReference1.PrestamoCRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
+    public partial class PrestamoCRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string carnet;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int PrestamoCliente;
+        
+        public PrestamoCRequestBody() {
+        }
+        
+        public PrestamoCRequestBody(string carnet, int PrestamoCliente) {
+            this.carnet = carnet;
+            this.PrestamoCliente = PrestamoCliente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class PrestamoCResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="PrestamoCResponse", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.PrestamoCResponseBody Body;
+        
+        public PrestamoCResponse() {
+        }
+        
+        public PrestamoCResponse(Practica1.ServiceReference1.PrestamoCResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
+    public partial class PrestamoCResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool PrestamoCResult;
+        
+        public PrestamoCResponseBody() {
+        }
+        
+        public PrestamoCResponseBody(bool PrestamoCResult) {
+            this.PrestamoCResult = PrestamoCResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class BuscarPedidoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarPedido", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.BuscarPedidoRequestBody Body;
+        
+        public BuscarPedidoRequest() {
+        }
+        
+        public BuscarPedidoRequest(Practica1.ServiceReference1.BuscarPedidoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
+    public partial class BuscarPedidoRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string IDMask;
+        
+        public BuscarPedidoRequestBody() {
+        }
+        
+        public BuscarPedidoRequestBody(string IDMask) {
+            this.IDMask = IDMask;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class BuscarPedidoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="BuscarPedidoResponse", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.BuscarPedidoResponseBody Body;
+        
+        public BuscarPedidoResponse() {
+        }
+        
+        public BuscarPedidoResponse(Practica1.ServiceReference1.BuscarPedidoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
+    public partial class BuscarPedidoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Data.DataSet BuscarPedidoResult;
+        
+        public BuscarPedidoResponseBody() {
+        }
+        
+        public BuscarPedidoResponseBody(System.Data.DataSet BuscarPedidoResult) {
+            this.BuscarPedidoResult = BuscarPedidoResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UptadtePrestamoRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UptadtePrestamo", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.UptadtePrestamoRequestBody Body;
+        
+        public UptadtePrestamoRequest() {
+        }
+        
+        public UptadtePrestamoRequest(Practica1.ServiceReference1.UptadtePrestamoRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
+    public partial class UptadtePrestamoRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int Prestado;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string codlibro;
+        
+        public UptadtePrestamoRequestBody() {
+        }
+        
+        public UptadtePrestamoRequestBody(int Prestado, string codlibro) {
+            this.Prestado = Prestado;
+            this.codlibro = codlibro;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UptadtePrestamoResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UptadtePrestamoResponse", Namespace="http://localhost:1240/Service.asmx", Order=0)]
+        public Practica1.ServiceReference1.UptadtePrestamoResponseBody Body;
+        
+        public UptadtePrestamoResponse() {
+        }
+        
+        public UptadtePrestamoResponse(Practica1.ServiceReference1.UptadtePrestamoResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost:1240/Service.asmx")]
+    public partial class UptadtePrestamoResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UptadtePrestamoResult;
+        
+        public UptadtePrestamoResponseBody() {
+        }
+        
+        public UptadtePrestamoResponseBody(bool UptadtePrestamoResult) {
+            this.UptadtePrestamoResult = UptadtePrestamoResult;
         }
     }
     
@@ -546,17 +778,60 @@ namespace Practica1.ServiceReference1 {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Practica1.ServiceReference1.UpdateResponse Practica1.ServiceReference1.ServiceSoap.Update(Practica1.ServiceReference1.UpdateRequest request) {
-            return base.Channel.Update(request);
+        Practica1.ServiceReference1.PrestamoResponse Practica1.ServiceReference1.ServiceSoap.Prestamo(Practica1.ServiceReference1.PrestamoRequest request) {
+            return base.Channel.Prestamo(request);
         }
         
-        public System.Data.DataSet Update(int prestamolibro, string NombreLibro) {
-            Practica1.ServiceReference1.UpdateRequest inValue = new Practica1.ServiceReference1.UpdateRequest();
-            inValue.Body = new Practica1.ServiceReference1.UpdateRequestBody();
-            inValue.Body.prestamolibro = prestamolibro;
-            inValue.Body.NombreLibro = NombreLibro;
-            Practica1.ServiceReference1.UpdateResponse retVal = ((Practica1.ServiceReference1.ServiceSoap)(this)).Update(inValue);
-            return retVal.Body.UpdateResult;
+        public bool Prestamo(int Disponible, int Prestado, string codlibro, int TopPrestamo) {
+            Practica1.ServiceReference1.PrestamoRequest inValue = new Practica1.ServiceReference1.PrestamoRequest();
+            inValue.Body = new Practica1.ServiceReference1.PrestamoRequestBody();
+            inValue.Body.Disponible = Disponible;
+            inValue.Body.Prestado = Prestado;
+            inValue.Body.codlibro = codlibro;
+            inValue.Body.TopPrestamo = TopPrestamo;
+            Practica1.ServiceReference1.PrestamoResponse retVal = ((Practica1.ServiceReference1.ServiceSoap)(this)).Prestamo(inValue);
+            return retVal.Body.PrestamoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Practica1.ServiceReference1.PrestamoCResponse Practica1.ServiceReference1.ServiceSoap.PrestamoC(Practica1.ServiceReference1.PrestamoCRequest request) {
+            return base.Channel.PrestamoC(request);
+        }
+        
+        public bool PrestamoC(string carnet, int PrestamoCliente) {
+            Practica1.ServiceReference1.PrestamoCRequest inValue = new Practica1.ServiceReference1.PrestamoCRequest();
+            inValue.Body = new Practica1.ServiceReference1.PrestamoCRequestBody();
+            inValue.Body.carnet = carnet;
+            inValue.Body.PrestamoCliente = PrestamoCliente;
+            Practica1.ServiceReference1.PrestamoCResponse retVal = ((Practica1.ServiceReference1.ServiceSoap)(this)).PrestamoC(inValue);
+            return retVal.Body.PrestamoCResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Practica1.ServiceReference1.BuscarPedidoResponse Practica1.ServiceReference1.ServiceSoap.BuscarPedido(Practica1.ServiceReference1.BuscarPedidoRequest request) {
+            return base.Channel.BuscarPedido(request);
+        }
+        
+        public System.Data.DataSet BuscarPedido(string IDMask) {
+            Practica1.ServiceReference1.BuscarPedidoRequest inValue = new Practica1.ServiceReference1.BuscarPedidoRequest();
+            inValue.Body = new Practica1.ServiceReference1.BuscarPedidoRequestBody();
+            inValue.Body.IDMask = IDMask;
+            Practica1.ServiceReference1.BuscarPedidoResponse retVal = ((Practica1.ServiceReference1.ServiceSoap)(this)).BuscarPedido(inValue);
+            return retVal.Body.BuscarPedidoResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Practica1.ServiceReference1.UptadtePrestamoResponse Practica1.ServiceReference1.ServiceSoap.UptadtePrestamo(Practica1.ServiceReference1.UptadtePrestamoRequest request) {
+            return base.Channel.UptadtePrestamo(request);
+        }
+        
+        public bool UptadtePrestamo(int Prestado, string codlibro) {
+            Practica1.ServiceReference1.UptadtePrestamoRequest inValue = new Practica1.ServiceReference1.UptadtePrestamoRequest();
+            inValue.Body = new Practica1.ServiceReference1.UptadtePrestamoRequestBody();
+            inValue.Body.Prestado = Prestado;
+            inValue.Body.codlibro = codlibro;
+            Practica1.ServiceReference1.UptadtePrestamoResponse retVal = ((Practica1.ServiceReference1.ServiceSoap)(this)).UptadtePrestamo(inValue);
+            return retVal.Body.UptadtePrestamoResult;
         }
     }
 }

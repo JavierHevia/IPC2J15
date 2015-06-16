@@ -119,6 +119,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WhizzDataSet2libro.xsd</DependentUpon>
     </Compile>
+    <Compile Include="WhizzDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WhizzDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="WhizzDataSetlibropre.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -225,6 +230,17 @@
     </None>
     <None Include="WhizzDataSet2libro.xss">
       <DependentUpon>WhizzDataSet2libro.xsd</DependentUpon>
+    </None>
+    <None Include="WhizzDataSet3.xsc">
+      <DependentUpon>WhizzDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="WhizzDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WhizzDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WhizzDataSet3.xss">
+      <DependentUpon>WhizzDataSet3.xsd</DependentUpon>
     </None>
     <None Include="WhizzDataSetlibropre.xsc">
       <DependentUpon>WhizzDataSetlibropre.xsd</DependentUpon>
