@@ -51,14 +51,15 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                         <li><a runat="server" href="~/">Inicio</a></li>
-                        
+                         <li><a runat="server" href="~/Inicio">Inicio</a></li>
+                        <li><a runat="server" href="~/">Productos</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                              <li><a runat="server" href="~/">Inicio</a></li>
-                                 <li><a runat="server" href="~/Productos">Productos</a></li>
+                              <li><a runat="server" href="~/LoginUsuario">Cerrar Cesión</a></li>
+                             
+                                 
                                 
                             </ul>
                         </AnonymousTemplate>
@@ -66,7 +67,6 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>

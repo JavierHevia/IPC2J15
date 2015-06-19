@@ -32,23 +32,26 @@ namespace WebApplication1
                 Session["Usuario"] = usuario;
 
                 MessageBox.Show("Bienvenido");
+                Response.Redirect("Clientes.aspx");
            
                 }else{
-                    MessageBox.Show("Error no es Cliente");
+                    MessageBox.Show("Error no es Cliente o no tiene autorización");
                 }
 
                 
 
-            }else if (dprRol.Text == "Empleado" | dprRol.Text == "Administrador"){
+            }else if (dprRol.Text == "Empleado" ){
 
                 int codigo = Convert.ToInt32(txtusuario.Text);
 
                 if (servicio.VerificarEmpleadoOAdministrador(codigo,contraseña, rol) == 1)
                 {
-                    Session["Cliente"] = codigo;
+                    Session["Empleado"] = codigo;
 
-                    MessageBox.Show("Bienvenido Empleado/Administrador");
+                    MessageBox.Show("Bienvenido Empleado");
 
+                }else {
+                    MessageBox.Show("Error como Empleado");
                 }
                 
                 
@@ -56,17 +59,26 @@ namespace WebApplication1
                 
                 
                 
-                
-                
-                
-                
+
+            }else if (dprRol.Text == "Administrador"){
+
+
+
+
+                int codigo = Convert.ToInt32(txtusuario.Text);
+
+                if (servicio.VerificarEmpleadoOAdministrador(codigo, contraseña, rol) == 1)
+                {
+                    Session["Administrador"] = codigo;
+
+                    MessageBox.Show("---Bienvenido Administrador---");
+
+                   
+                }
                 else
                 {
-                    MessageBox.Show("Error no estas en el sistema");
-                
-                
+                    MessageBox.Show("Error como Administrador");
                 }
-
 
             }
 

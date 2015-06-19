@@ -117,7 +117,7 @@ namespace WebApplication1
             {
                 SqlCommand cm = new SqlCommand();
                 cm.Connection = conexion;
-                cm.CommandText = "SELECT COUNT(*) FROM Cliente where UsuarioC='" + Usuario + "' and Contraseña='" + Contraseña + "'";
+                cm.CommandText = "SELECT COUNT(*) FROM Cliente where UsuarioC='" + Usuario + "' and Contraseña='" + Contraseña + "' and NoCasilla='" + 1 + "'";
                 conectarServidor();
                 cant = Convert.ToInt32(cm.ExecuteScalar());
                 if (conectarServidor())

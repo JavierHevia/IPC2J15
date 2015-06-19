@@ -13,5 +13,11 @@ namespace WebApplication1
         {
 
         }
+
+        protected void btaprobar_Click(object sender, EventArgs e)
+        {
+            GridView1.Visible = true;
+            Label1.Visible = true;
+        }
     }
 }
