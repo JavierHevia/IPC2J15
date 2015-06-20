@@ -7,7 +7,7 @@
         <p style="height: 230px">
             <table style="width: 100%; height: 196px;">
                 <tr>
-                    <td style="width: 209px">
+                    <td style="width: 200px">
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="font-size: small" Text="Consulta de Paquetes" Width="183px" />
                     </td>
                     <td style="width: 203px">
@@ -47,7 +47,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="width: 209px">
+                    <td style="width: 200px">
                         <asp:Button ID="Button2" runat="server" style="font-size: small" Text="Información invidual de Paquetes " Height="39px" OnClick="Button2_Click" Width="186px" />
                     </td>
                     <td style="width: 203px">
@@ -56,13 +56,16 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td style="width: 209px"><strong>
+                    <td style="width: 200px"><strong>
                         <asp:Label ID="txtnombre" runat="server" style="color: #0066CC"></asp:Label>
                         </strong></td>
                     <td style="width: 203px">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
+        </p>
+        <p style="height: 55px">
+            <asp:Label ID="lbmensaje" runat="server" style="color: #FF3300"></asp:Label>
         </p>
         <p style="height: 326px">
             <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" style="font-size: small" UseAccessibleHeader="False" Height="275px" Visible="False">

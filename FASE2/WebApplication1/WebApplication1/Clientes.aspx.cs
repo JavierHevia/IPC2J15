@@ -38,7 +38,7 @@ namespace WebApplication1
             ddImpuesto.Visible = false;
 
             c.Visible = false;
-
+            lbmensaje.Text = "Paquetes de Estados Unidos";
         }
 
         protected void Button4_Click(object sender, EventArgs e)
@@ -50,6 +50,7 @@ namespace WebApplication1
             Label2.Visible = false;
             Label3.Visible = false;
             Label4.Visible = false;
+            lbmensaje.Text = "Edición de Datos";
 
             txttotal.Visible = false;
             txtpeso.Visible = false;
@@ -84,6 +85,8 @@ namespace WebApplication1
 
             GridView1.Visible = false;
             GridView2.Visible = false;
+
+            lbmensaje.Text = "Cotización";
         }
 
         protected void Calcular_Click(object sender, EventArgs e)

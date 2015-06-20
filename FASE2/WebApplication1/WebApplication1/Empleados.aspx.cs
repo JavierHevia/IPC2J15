@@ -18,6 +18,23 @@ namespace WebApplication1
         {
             GridView1.Visible = true;
             Label1.Visible = true;
+
+
+
+            lbmensaje.Text = "Autorización de Clientes";
+            
+            GridView2.Visible = false;
+
+        }
+
+        protected void btpedidos_Click(object sender, EventArgs e)
+        {
+            
+            GridView2.Visible = true;
+
+            lbmensaje.Text = "Registrar Paquetes";
+            GridView1.Visible = false;
+            Label1.Visible = false;
         }
     }
 }
