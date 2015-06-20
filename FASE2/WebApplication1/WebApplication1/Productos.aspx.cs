@@ -25,7 +25,7 @@ namespace WebApplication1
 
             Label1.Text = Nombre;
             Label2.Text = precio;
-            TextBox1.Text = GridView1.SelectedRow.Cells[2].Text; ;
+            TextBox1.Text = GridView1.SelectedRow.Cells[2].Text; 
         }
     }
 }

@@ -22,8 +22,8 @@ namespace WebApplication1
 
 
             lbmensaje.Text = "Autorización de Clientes";
-            
             GridView2.Visible = false;
+            DetailsView1.Visible = false;
 
         }
 
@@ -35,6 +35,19 @@ namespace WebApplication1
             lbmensaje.Text = "Registrar Paquetes";
             GridView1.Visible = false;
             Label1.Visible = false;
+            DetailsView1.Visible = false;
+        }
+
+        protected void añadirlote_Click(object sender, EventArgs e)
+        {
+            DetailsView1.Visible = true;
+
+            GridView2.Visible = false;
+
+            lbmensaje.Text = "Añadir Lote";
+            GridView1.Visible = false;
+            Label1.Visible = false;
+
         }
     }
 }
