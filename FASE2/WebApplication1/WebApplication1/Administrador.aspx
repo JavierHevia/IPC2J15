@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Administrador.aspx.cs" Inherits="WebApplication1.Administrador" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Administrador.aspx.cs" Inherits="WebApplication1.Administrador" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -30,23 +30,21 @@
             </table>
         </p>
         <p style="height: 58px">
-            <div class="text-center">
-                <asp:FileUpload ID="fusubir" runat="server" style="font-size: small" Visible="False" />
-            </div>
-            <asp:Button ID="btcarga" runat="server" style="font-size: small" Text="Subir" Visible="False" />
-        <p style="height: 255px; width: 724px;">
+            <p style="height: 255px; width: 724px;">
             <asp:SqlDataSource ID="sqdimpuesto" runat="server" ConnectionString="<%$ ConnectionStrings:PFase2 %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Impuesto]"></asp:SqlDataSource>
             <table style="width: 100%; height: 159px;">
                 <tr>
                     <td style="height: 30px; width: 306px"><strong>
-                        <asp:Label ID="Label2" runat="server" style="font-size: medium" Text="Agregar, Modificar e Inhabilitar  Cobros"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" style="font-size: medium" Text="Agregar, Modificar e Inhabilitar  Cobros" Visible="False"></asp:Label>
                         </strong></td>
-                    <td style="height: 30px; width: 242px;">Comisión</td>
+                    <td style="height: 30px; width: 242px;"><strong>
+                        <asp:Label ID="Label5" runat="server" style="font-size: medium" Text="Comisión" Visible="False"></asp:Label>
+                        </strong></td>
                     <td style="height: 30px"></td>
                 </tr>
                 <tr>
                     <td style="height: 92px; width: 306px">
-                        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Categoria" DataSourceID="sqdimpuesto" ForeColor="#333333" GridLines="None" Height="50px" style="font-size: small" Width="125px">
+                        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Categoria" DataSourceID="sqdimpuesto" ForeColor="#333333" GridLines="None" Height="50px" style="font-size: small" Width="125px" Visible="False">
                             <AlternatingRowStyle BackColor="White" />
                             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
                             <EditRowStyle BackColor="#2461BF" />
@@ -63,7 +61,7 @@
                         </asp:DetailsView>
                     </td>
                     <td style="height: 92px; width: 242px;">
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Sede" DataSourceID="sdssede" ForeColor="#333333" GridLines="None" style="font-size: small">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Sede" DataSourceID="sdssede" ForeColor="#333333" GridLines="None" style="font-size: small" Visible="False">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:CommandField ShowEditButton="True" />
@@ -149,6 +147,36 @@
                     <asp:Parameter Name="original_Estado" Type="String" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+        </p>
+        <p style="height: 484px">
+            <table style="width: 100%; height: 151px;">
+                <tr>
+                    <td style="width: 281px">
+                <asp:FileUpload ID="fusubir" runat="server" style="font-size: small" Visible="False" Height="32px" />
+                    </td>
+                    <td style="width: 166px">
+                        <asp:Label ID="Label3" runat="server" style="font-size: small"></asp:Label>
+                        <br />
+                        <asp:Label ID="Label4" runat="server" style="font-size: small" Text="Label" Visible="False"></asp:Label>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="width: 281px">
+                        <asp:Button ID="btsubir" runat="server" OnClick="btsubir_Click" style="font-size: small" Text="Subir" Visible="False" />
+                        <asp:Button ID="btcargar" runat="server" OnClick="btcargar_Click1" style="font-size: small" Text="Cargar" Visible="False" />
+                    </td>
+                    <td style="width: 166px">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="width: 281px">&nbsp;</td>
+                    <td style="width: 166px">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <asp:GridView ID="GridView2" runat="server" style="font-size: small">
+            </asp:GridView>
         </p>
         <p style="height: 15px">&nbsp;</p>
     </div>

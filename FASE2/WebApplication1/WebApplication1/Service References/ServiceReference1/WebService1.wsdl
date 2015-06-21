@@ -69,6 +69,56 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Pagosiono">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nocasilla" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pago" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PagosionoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PagosionoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarcliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IDMask" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarclienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscarclienteResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVImpuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CargarCSVImpuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CargarCSVImpuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -101,6 +151,24 @@
   <wsdl:message name="VerificarEmpleadoOAdministradorSoapOut">
     <wsdl:part name="parameters" element="tns:VerificarEmpleadoOAdministradorResponse" />
   </wsdl:message>
+  <wsdl:message name="PagosionoSoapIn">
+    <wsdl:part name="parameters" element="tns:Pagosiono" />
+  </wsdl:message>
+  <wsdl:message name="PagosionoSoapOut">
+    <wsdl:part name="parameters" element="tns:PagosionoResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscarclienteSoapIn">
+    <wsdl:part name="parameters" element="tns:buscarcliente" />
+  </wsdl:message>
+  <wsdl:message name="buscarclienteSoapOut">
+    <wsdl:part name="parameters" element="tns:buscarclienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVImpuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:CargarCSVImpuesto" />
+  </wsdl:message>
+  <wsdl:message name="CargarCSVImpuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:CargarCSVImpuestoResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -121,6 +189,18 @@
     <wsdl:operation name="VerificarEmpleadoOAdministrador">
       <wsdl:input message="tns:VerificarEmpleadoOAdministradorSoapIn" />
       <wsdl:output message="tns:VerificarEmpleadoOAdministradorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pagosiono">
+      <wsdl:input message="tns:PagosionoSoapIn" />
+      <wsdl:output message="tns:PagosionoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarcliente">
+      <wsdl:input message="tns:buscarclienteSoapIn" />
+      <wsdl:output message="tns:buscarclienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <wsdl:input message="tns:CargarCSVImpuestoSoapIn" />
+      <wsdl:output message="tns:CargarCSVImpuestoSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -170,6 +250,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Pagosiono">
+      <soap:operation soapAction="http://tempuri.org/Pagosiono" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarcliente">
+      <soap:operation soapAction="http://tempuri.org/buscarcliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <soap:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -211,6 +318,33 @@
     </wsdl:operation>
     <wsdl:operation name="VerificarEmpleadoOAdministrador">
       <soap12:operation soapAction="http://tempuri.org/VerificarEmpleadoOAdministrador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pagosiono">
+      <soap12:operation soapAction="http://tempuri.org/Pagosiono" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarcliente">
+      <soap12:operation soapAction="http://tempuri.org/buscarcliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CargarCSVImpuesto">
+      <soap12:operation soapAction="http://tempuri.org/CargarCSVImpuesto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

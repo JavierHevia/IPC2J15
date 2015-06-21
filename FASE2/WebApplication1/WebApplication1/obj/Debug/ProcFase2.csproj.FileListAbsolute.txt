@@ -66,3 +66,4 @@ c:\users\sergio\documents\visual studio 2013\Projects\WebApplication1\WebApplica
 c:\users\sergio\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 c:\users\sergio\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\bin\WebService1.asmx
 c:\users\sergio\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\bin\WebService1.asmx.cs
+C:\Users\Sergio\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\bin\itextsharp.dll

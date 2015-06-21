@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -187,6 +188,127 @@ namespace WebApplication1
             }
             return cant;
         }
+
+
+
+
+        //Actualizacion para cliente y el prestamo
+        [WebMethod]
+        public bool Pagosiono(int nocasilla, string pago)
+        {
+            bool respuesta = false;
+            try
+            {
+                SqlCommand cm = new SqlCommand();
+                cm.Connection = conexion;
+                cm.CommandText = "Update Cliente Set Pago=" + pago + " Where CasillaInter=" + nocasilla;
+                conectarServidor();
+
+                if (conectarServidor())
+                {
+                    if (cm.ExecuteNonQuery() == 1)
+                        respuesta = true;
+                    else
+                        respuesta = false;
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                respuesta = false;
+                //MostrarError = "Erro: " + e.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return respuesta;
+        }
+
+
+        [WebMethod]
+        public DataSet buscarcliente(string IDMask)
+        {
+            IDMask = IDMask.Replace("'", "''");
+
+
+            SqlConnection con = new SqlConnection("Data Source=SERGIO-PC\\SQL2012;Initial Catalog=PFase2;Integrated Security=True");
+
+            SqlDataAdapter daCust = new SqlDataAdapter("Select * From Cliente WHERE NombreC Like '%" + IDMask + "%'", con);
+
+            DataSet ds = new DataSet();
+
+            con.Open();
+
+            daCust.Fill(ds, "Libro");
+
+            con.Close();
+
+
+            return ds;
+        }
+
+
+        [WebMethod]
+        public bool CargarCSVImpuesto(string path)
+        {
+            bool respuesta = false;
+            try
+            {
+                SqlCommand verificar = new SqlCommand();
+                verificar.Connection = conexion;
+                verificar.CommandText = "BULK INSERT dbo.Impuesto FROM '" + path + "' WITH (FIELDTERMINATOR = ',', ROWTERMINATOR = '\n' )";
+
+                conectarServidor();
+
+                if (conectarServidor())
+                {
+                    if (verificar.ExecuteNonQuery() == 1)
+                    {
+                        respuesta = true;
+                    }
+
+                    else
+                    {
+                        respuesta = false;
+                    }
+
+
+                }
+                else
+                {
+                    respuesta = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                mostrarError = "Error" + ex.Message.ToString();
+            }
+            finally
+            {
+                conexion.Close();
+            }
+            return respuesta;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

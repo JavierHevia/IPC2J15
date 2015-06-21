@@ -47,17 +47,16 @@ namespace WebApplication1
                 if (servicio.VerificarEmpleadoOAdministrador(codigo,contraseña, rol) == 1)
                 {
                     Session["Empleado"] = codigo;
+                    
 
                     MessageBox.Show("Bienvenido Empleado");
+                    Response.Redirect("Empleados.aspx");
 
                 }else {
                     MessageBox.Show("Error como Empleado");
                 }
                 
-                
-                
-                
-                
+               
                 
 
             }else if (dprRol.Text == "Administrador"){
@@ -70,8 +69,10 @@ namespace WebApplication1
                 if (servicio.VerificarEmpleadoOAdministrador(codigo, contraseña, rol) == 1)
                 {
                     Session["Administrador"] = codigo;
+                   
 
                     MessageBox.Show("---Bienvenido Administrador---");
+                    Response.Redirect("Administrador.aspx");
 
                    
                 }
@@ -79,6 +80,28 @@ namespace WebApplication1
                 {
                     MessageBox.Show("Error como Administrador");
                 }
+
+            }
+            else if (dprRol.Text == "Director")
+            {
+
+
+                int codigo = Convert.ToInt32(txtusuario.Text);
+
+                if (servicio.VerificarEmpleadoOAdministrador(codigo, contraseña, rol) == 1)
+                {
+                    Session["director"] = codigo;
+
+                    MessageBox.Show("---Bienvenido Director---");
+                    Response.Redirect("Director.aspx");
+
+                }
+                else
+                {
+                    MessageBox.Show("Error como Director");
+                }
+
+
 
             }
 

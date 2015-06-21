@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Web.SessionState; 
 
 
-using System.Web.SessionState;
 using System.Windows.Forms;
 using System.Data.SqlClient; 
 
@@ -148,7 +147,7 @@ namespace WebApplication1
             {
                 MessageBox.Show("dddd");
             }
-            con2.Close();
+            con21.Close();
 
 
 
@@ -156,8 +155,8 @@ namespace WebApplication1
             costoinicio = float.Parse(txtcostopaquete.Text);
             peso = float.Parse(txtpeso.Text);
 
-            if (ddImpuesto.Text == "Accesorio de Telefonia")
-            {
+            //if (ddImpuesto.Text == "Accesorio de Telefonia")
+            //{
               
                 
                 C1 = costoinicio+(peso*pesolb33);
@@ -165,51 +164,51 @@ namespace WebApplication1
                 C3 = costoinicio * (impu/100);
                 total = C1 + C2+ C3;
                 txttotal.Text = total.ToString();
-            }
-            else if (ddImpuesto.Text == "Videocintas")
-            {
+            ////}
+            ////else if (ddImpuesto.Text == "Videocintas")
+            ////{
 
-                C1 = costoinicio + (peso * pesolb33);
-                C2 = (costoinicio * (comision33 / 100));
-                C3 = costoinicio * (impu / 100);
-                total = C1 + C2+ C3;
-                txttotal.Text = total.ToString();
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision33 / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2+ C3;
+            //    txttotal.Text = total.ToString();
 
-            }
-            else if (ddImpuesto.Text == "Articulos de Cuero")
-            {
-                C1 = costoinicio + (peso * pesolb33);
-                C2 = (costoinicio * (comision33 / 100));
-                C3 = costoinicio * (impu / 100);
-                total = C1 + C2 + C3;
-                txttotal.Text = total.ToString();
+            //}
+            //else if (ddImpuesto.Text == "Articulos de Cuero")
+            //{
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision33 / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
 
 
-            }
-            else if (ddImpuesto.Text == "Zapatos")
-            {
-                C1 = costoinicio + (peso * pesolb33);
-                C2 = (costoinicio * (comision33 / 100));
-                C3 = costoinicio * (impu / 100);
-                total = C1 + C2 + C3;
-                txttotal.Text = total.ToString();
-            }
-            else if (ddImpuesto.Text == "Videojuegos Blu-Ray")
-            {
-                C1 = costoinicio + (peso * pesolb33);
-                C2 = (costoinicio * (comision33 / 100));
-                C3 = costoinicio * (impu / 100);
-                total = C1 + C2 + C3;
-                txttotal.Text = total.ToString();
+            //}
+            //else if (ddImpuesto.Text == "Zapatos")
+            //{
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision33 / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
+            //}
+            //else if (ddImpuesto.Text == "Videojuegos Blu-Ray")
+            //{
+            //    C1 = costoinicio + (peso * pesolb33);
+            //    C2 = (costoinicio * (comision33 / 100));
+            //    C3 = costoinicio * (impu / 100);
+            //    total = C1 + C2 + C3;
+            //    txttotal.Text = total.ToString();
 
           
-            }
+            //}
 
 
-            else
-            {
-                txttotal.Text = "Error";
-            }
+            //else
+            //{
+            //    txttotal.Text = "Error";
+            //}
 
 
 
