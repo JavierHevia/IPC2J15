@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">Quetzal Express</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -58,8 +58,8 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/RegistroUsuario">Registrarse</a></li>
-                                <li><a runat="server" href="~/Account/LoginCliente">Iniciar sesión</a></li>
+                                <li><a runat="server" href="~/RegistrarUsuario">Registrarse</a></li>
+                                <li><a runat="server" href="~/LoginUsuario">Iniciar sesión</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>

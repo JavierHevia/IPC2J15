@@ -19,7 +19,7 @@
                     <asp:Label ID="Label2" runat="server" style="font-size: large" Text="Contraseña"></asp:Label>
                     </strong></td>
                 <td style="width: 310px">
-                    <asp:TextBox ID="txtcontraseña" runat="server" Height="34px" Width="100%"></asp:TextBox>
+                    <asp:TextBox ID="txtcontraseña" runat="server" Height="34px" Width="100%" TextMode="Password"></asp:TextBox>
                 </td>
                 <td style="width: 261px">
                     <asp:DropDownList ID="dprRol" runat="server">
