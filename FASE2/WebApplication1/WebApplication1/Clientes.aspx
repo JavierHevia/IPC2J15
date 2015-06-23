@@ -190,7 +190,7 @@
                     <asp:Parameter Name="original_Cod_Sede" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource6" ForeColor="#333333" GridLines="None" style="font-size: small" Visible="False">
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource6" ForeColor="#333333" GridLines="None" style="font-size: small" Visible="False" OnSelectedIndexChanged="GridView3_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="Cod_Paquete" HeaderText="Cod_Paquete" ReadOnly="True" SortExpression="Cod_Paquete" />

@@ -46,12 +46,14 @@ namespace WebApplication1
             Button3.Visible = false;
             Button5.Visible = false;
             Panel1.Visible = false;
+            Panel2.Visible = false;
         }
 
         protected void btpedidos_Click(object sender, EventArgs e)
         {
 
             DetailsView2.Visible = true;
+            Panel2.Visible = true;
 
             lbmensaje.Text = "Registrar Paquetes";
             GridView1.Visible = false;
@@ -98,6 +100,7 @@ namespace WebApplication1
             Button3.Visible = false;
             Button5.Visible = false;
             Panel1.Visible = false;
+            Panel2.Visible = false;
         }
 
         protected void btfactura_Click(object sender, EventArgs e)
@@ -129,9 +132,10 @@ namespace WebApplication1
 
             gvpaquetes.Visible = true;
             Button5.Visible = true;
+            string no = "Si";
+            int casilla = Convert.ToInt32(txtcasilla.Text);
 
-
-
+            servicio.Pagosiono(casilla,no);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -154,6 +158,7 @@ namespace WebApplication1
             Button3.Visible = false;
             Button5.Visible = false;
             Panel1.Visible = false;
+            Panel2.Visible = false;
         }
 
         protected void gvpaquetes_SelectedIndexChanged(object sender, EventArgs e)
@@ -191,6 +196,7 @@ namespace WebApplication1
             Button3.Visible = false;
             Button5.Visible = false;
             Panel1.Visible = false;
+            Panel2.Visible = false;
         }
 
       
@@ -239,62 +245,10 @@ namespace WebApplication1
             Label3.Visible = false;
             Button5.Visible = false;
             Panel1.Visible = false;
+            Panel2.Visible = false;
         }
 
-        protected void Button5_Click(object sender, EventArgs e)
-        {
-
-            iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 10, 10, 10, 10);
-
-            iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, System.Web.HttpContext.Current.Response.OutputStream);
-
-            string cadenaFinal = "";
-            pdfDoc.Open();
-            string strContent = cadenaFinal;
-            pdfDoc.Add(new Paragraph("                                                                                                                  FACTURA       No. 001"));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                 Quetzal Expres                               "));
-            pdfDoc.Add(new Paragraph("            10ma calle 20-15 Zona 15"));
-            pdfDoc.Add(new Paragraph("              www.QuetzalExpress.com"));
-            pdfDoc.Add(new Paragraph("             Nit Empresa: 21240000-1"));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-
-            pdfDoc.Add(new Paragraph("NOMBRE:" + lbusuarios.Text + "   APELLIDO:  " + lbapellido.Text + "    "));
-
-
-            pdfDoc.Add(new Paragraph("Dirección:  " + lbdireccion.Text + "                                "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                                              "));
-            pdfDoc.Add(new Paragraph("                                     TOTAL: " + lbtotal.Text));
-
-            //Read string contents using stream reader and convert html to parsed conent 
-            var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(strContent), null);
-
-            //Get each array values from parsed elements and add to the PDF document 
-            foreach (var htmlElement in parsedHtmlElements)
-                pdfDoc.Add(htmlElement as IElement);
-
-            //Close your PDF 
-            pdfDoc.Close();
-
-            Response.ContentType = "application/pdf";
-
-            //Set default file Name as current datetime 
-            Response.AddHeader("content-disposition", "attachment; filename=FACTURA.pdf");
-            System.Web.HttpContext.Current.Response.Write(pdfDoc);
-
-            Response.Flush();
-            Response.End();
-
-        }
+      
 
 
         // creará la tabla de acuerdo a la cantidad de columnas 
@@ -428,6 +382,87 @@ namespace WebApplication1
         protected void Button8_Click(object sender, EventArgs e)
         {
             Panel1.Visible = true;
+        }
+
+        protected void Button5_Click1(object sender, EventArgs e)
+        {
+            //hacer factura
+            iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 10, 10, 10, 10);
+
+            iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, System.Web.HttpContext.Current.Response.OutputStream);
+
+            string cadenaFinal = "";
+            pdfDoc.Open();
+            string strContent = cadenaFinal;
+            pdfDoc.Add(new Paragraph("                                                                                                                  FACTURA       No. 001"));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                 Quetzal Expres                               "));
+            pdfDoc.Add(new Paragraph("            10ma calle 20-15 Zona 15"));
+            pdfDoc.Add(new Paragraph("              www.QuetzalExpress.com"));
+            pdfDoc.Add(new Paragraph("             Nit Empresa: 21240000-1"));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+
+            pdfDoc.Add(new Paragraph("NOMBRE:" + lbusuarios.Text + "   APELLIDO:  " + lbapellido.Text + "    "));
+
+
+            pdfDoc.Add(new Paragraph("Dirección:  " + lbdireccion.Text + "                                "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                                              "));
+            pdfDoc.Add(new Paragraph("                                     TOTAL: " + lbtotal.Text));
+
+            //Read string contents using stream reader and convert html to parsed conent 
+            var parsedHtmlElements = HTMLWorker.ParseToList(new StringReader(strContent), null);
+
+            //Get each array values from parsed elements and add to the PDF document 
+            foreach (var htmlElement in parsedHtmlElements)
+                pdfDoc.Add(htmlElement as IElement);
+
+            //Close your PDF 
+            pdfDoc.Close();
+
+            Response.ContentType = "application/pdf";
+
+            //Set default file Name as current datetime 
+            Response.AddHeader("content-disposition", "attachment; filename=FACTURA.pdf");
+            System.Web.HttpContext.Current.Response.Write(pdfDoc);
+
+            Response.Flush();
+            Response.End();
+
+
+
+
+            float total = float.Parse(lbtotal.Text);
+
+            //Guardar base
+            String Tabla = "Factura";
+            String Campos = "Usuario,ValorTotal";
+            String Valores = "'" + lbusuarios.Text + "','" + total + "'";
+
+
+            if (servicio.Registrar(Tabla, Campos, Valores))
+            {
+
+                MessageBox.Show("Factura Guardada");
+
+                
+            }
+            else
+            {
+
+                MessageBox.Show("Error Conexion");
+
+            }
+
+
         }
     }
 }

@@ -194,14 +194,14 @@ namespace WebApplication1
 
         //Actualizacion para cliente y el prestamo
         [WebMethod]
-        public bool Pagosiono(int nocasilla, string pago)
+        public bool Pagosiono(int CasillaInter, string pago)
         {
             bool respuesta = false;
             try
             {
                 SqlCommand cm = new SqlCommand();
                 cm.Connection = conexion;
-                cm.CommandText = "Update Cliente Set Pago=" + pago + " Where CasillaInter=" + nocasilla;
+                cm.CommandText = "Update Cliente Set Pago='" + pago + "' Where CasillaInter='" + CasillaInter+"'";
                 conectarServidor();
 
                 if (conectarServidor())
@@ -297,18 +297,6 @@ namespace WebApplication1
             }
             return respuesta;
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

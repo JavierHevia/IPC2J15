@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron" style="height: 2333px; width: 713px;">
+    <div class="jumbotron" style="height: 2592px; width: 713px;">
         <p style="height: 57px" class="text-center">
             ¡Bienvenido Empleado!</p>
             <table style="width: 100%; height: 189px;">
@@ -151,7 +151,7 @@
             <asp:Label ID="Label1" runat="server" style="width: 517px; height: 23px; left: 53px; top: 423px; font-size: small; " Text="Para Autorizar Cliente en vez de &quot;0&quot; coloque un &quot;1&quot; o viceversa" Visible="False"></asp:Label>
             </strong>
         </p>
-        <p style="height: 395px">
+        <p style="height: 544px">
             &nbsp<asp:DetailsView ID="DetailsView2" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="50px" style="font-size: small" Width="125px" Visible="False">
                 <AlternatingRowStyle BackColor="White" />
                 <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
@@ -177,6 +177,89 @@
                 <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
                 <RowStyle BackColor="#EFF3FB" />
             </asp:DetailsView>
+    <asp:SqlDataSource ID="SqlDataSource9" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:PFase2 %>" DeleteCommand="DELETE FROM [Paquete] WHERE [Cod_Paquete] = @original_Cod_Paquete AND [Nombre] = @original_Nombre AND (([EstadoP] = @original_EstadoP) OR ([EstadoP] IS NULL AND @original_EstadoP IS NULL))" InsertCommand="INSERT INTO [Paquete] ([Cod_Paquete], [Nombre], [EstadoP]) VALUES (@Cod_Paquete, @Nombre, @EstadoP)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [Cod_Paquete], [Nombre], [EstadoP] FROM [Paquete]" UpdateCommand="UPDATE [Paquete] SET [Nombre] = @Nombre, [EstadoP] = @EstadoP WHERE [Cod_Paquete] = @original_Cod_Paquete AND [Nombre] = @original_Nombre AND (([EstadoP] = @original_EstadoP) OR ([EstadoP] IS NULL AND @original_EstadoP IS NULL))">
+        <DeleteParameters>
+            <asp:Parameter Name="original_Cod_Paquete" Type="Int32" />
+            <asp:Parameter Name="original_Nombre" Type="String" />
+            <asp:Parameter Name="original_EstadoP" Type="String" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Cod_Paquete" Type="Int32" />
+            <asp:Parameter Name="Nombre" Type="String" />
+            <asp:Parameter Name="EstadoP" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Nombre" Type="String" />
+            <asp:Parameter Name="EstadoP" Type="String" />
+            <asp:Parameter Name="original_Cod_Paquete" Type="Int32" />
+            <asp:Parameter Name="original_Nombre" Type="String" />
+            <asp:Parameter Name="original_EstadoP" Type="String" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:PFase2 %>" DeleteCommand="DELETE FROM [Paquete] WHERE [Cod_Paquete] = @original_Cod_Paquete AND [Peso_Lb] = @original_Peso_Lb AND (([Cod_Lote] = @original_Cod_Lote) OR ([Cod_Lote] IS NULL AND @original_Cod_Lote IS NULL))" InsertCommand="INSERT INTO [Paquete] ([Cod_Paquete], [Peso_Lb], [Cod_Lote]) VALUES (@Cod_Paquete, @Peso_Lb, @Cod_Lote)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [Cod_Paquete], [Peso_Lb], [Cod_Lote] FROM [Paquete]" UpdateCommand="UPDATE [Paquete] SET [Peso_Lb] = @Peso_Lb, [Cod_Lote] = @Cod_Lote WHERE [Cod_Paquete] = @original_Cod_Paquete AND [Peso_Lb] = @original_Peso_Lb AND (([Cod_Lote] = @original_Cod_Lote) OR ([Cod_Lote] IS NULL AND @original_Cod_Lote IS NULL))">
+        <DeleteParameters>
+            <asp:Parameter Name="original_Cod_Paquete" Type="Int32" />
+            <asp:Parameter Name="original_Peso_Lb" Type="Double" />
+            <asp:Parameter Name="original_Cod_Lote" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Cod_Paquete" Type="Int32" />
+            <asp:Parameter Name="Peso_Lb" Type="Double" />
+            <asp:Parameter Name="Cod_Lote" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Peso_Lb" Type="Double" />
+            <asp:Parameter Name="Cod_Lote" Type="Int32" />
+            <asp:Parameter Name="original_Cod_Paquete" Type="Int32" />
+            <asp:Parameter Name="original_Peso_Lb" Type="Double" />
+            <asp:Parameter Name="original_Cod_Lote" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+        </p>
+        <asp:Panel ID="Panel2" runat="server" style="width: 429px; height: 544px; position: absolute; left: 277px; top: 642px" Visible="False">
+            <strong>
+            <asp:Label ID="Label8" runat="server" style="font-size: small" Text="Añadir Paquete a lote"></asp:Label>
+            <br />
+            </strong><span style="font-size: small">A<span style="font-weight: bold">gregue el numero de lote en Cod_Lote</span></span><asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource8" ForeColor="#333333" GridLines="None" style="font-size: x-small" Width="343px">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:BoundField DataField="Cod_Paquete" HeaderText="Cod_Paquete" ReadOnly="True" SortExpression="Cod_Paquete" />
+                    <asp:BoundField DataField="Peso_Lb" HeaderText="Peso_Lb" SortExpression="Peso_Lb" />
+                    <asp:BoundField DataField="Cod_Lote" HeaderText="Cod_Lote" SortExpression="Cod_Lote" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+            <span style="font-weight: bold; font-size: small">Cambiar de estados los paquetes<br /> </span>
+            <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource9" ForeColor="#333333" GridLines="None" style="font-size: x-small">
+                <AlternatingRowStyle BackColor="White" />
+                <Columns>
+                    <asp:CommandField ShowEditButton="True" />
+                    <asp:BoundField DataField="Cod_Paquete" HeaderText="Cod_Paquete" ReadOnly="True" SortExpression="Cod_Paquete" />
+                    <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+                    <asp:BoundField DataField="EstadoP" HeaderText="EstadoP" SortExpression="EstadoP" />
+                </Columns>
+                <EditRowStyle BackColor="#2461BF" />
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </asp:Panel>
+        <p>
 &nbsp;<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:PFase2 %>" DeleteCommand="DELETE FROM [Paquete] WHERE [Cod_Paquete] = @original_Cod_Paquete AND [Nombre] = @original_Nombre AND [Peso_Lb] = @original_Peso_Lb AND [Valor_Costo] = @original_Valor_Costo AND (([Comision] = @original_Comision) OR ([Comision] IS NULL AND @original_Comision IS NULL)) AND [Valor_final] = @original_Valor_final AND [TipoImpuesto] = @original_TipoImpuesto AND (([Stock] = @original_Stock) OR ([Stock] IS NULL AND @original_Stock IS NULL)) AND (([UsuarioC] = @original_UsuarioC) OR ([UsuarioC] IS NULL AND @original_UsuarioC IS NULL)) AND (([EstadoP] = @original_EstadoP) OR ([EstadoP] IS NULL AND @original_EstadoP IS NULL)) AND (([Categoria] = @original_Categoria) OR ([Categoria] IS NULL AND @original_Categoria IS NULL))" InsertCommand="INSERT INTO [Paquete] ([Cod_Paquete], [Nombre], [Peso_Lb], [Valor_Costo], [Comision], [Valor_final], [TipoImpuesto], [Stock], [UsuarioC], [EstadoP], [Categoria]) VALUES (@Cod_Paquete, @Nombre, @Peso_Lb, @Valor_Costo, @Comision, @Valor_final, @TipoImpuesto, @Stock, @UsuarioC, @EstadoP, @Categoria)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Paquete]" UpdateCommand="UPDATE [Paquete] SET [Nombre] = @Nombre, [Peso_Lb] = @Peso_Lb, [Valor_Costo] = @Valor_Costo, [Comision] = @Comision, [Valor_final] = @Valor_final, [TipoImpuesto] = @TipoImpuesto, [Stock] = @Stock, [UsuarioC] = @UsuarioC, [EstadoP] = @EstadoP, [Categoria] = @Categoria WHERE [Cod_Paquete] = @original_Cod_Paquete AND [Nombre] = @original_Nombre AND [Peso_Lb] = @original_Peso_Lb AND [Valor_Costo] = @original_Valor_Costo AND (([Comision] = @original_Comision) OR ([Comision] IS NULL AND @original_Comision IS NULL)) AND [Valor_final] = @original_Valor_final AND [TipoImpuesto] = @original_TipoImpuesto AND (([Stock] = @original_Stock) OR ([Stock] IS NULL AND @original_Stock IS NULL)) AND (([UsuarioC] = @original_UsuarioC) OR ([UsuarioC] IS NULL AND @original_UsuarioC IS NULL)) AND (([EstadoP] = @original_EstadoP) OR ([EstadoP] IS NULL AND @original_EstadoP IS NULL)) AND (([Categoria] = @original_Categoria) OR ([Categoria] IS NULL AND @original_Categoria IS NULL))">
                 <DeleteParameters>
                     <asp:Parameter Name="original_Cod_Paquete" Type="Int32" />
@@ -330,8 +413,8 @@
                 <tr>
                     <td style="width: 123px">&nbsp;</td>
                     <td style="width: 207px">&nbsp;</td>
-                    <td>
-                        <asp:Button ID="Button5" runat="server" OnClick="Button5_Click" style="font-size: small" Text="Hacer Facturar" Visible="False" />
+                    <td style="font-size: small">
+                        <asp:Button ID="Button5" runat="server" OnClick="Button5_Click1" Text="Imprimir" />
                     </td>
                 </tr>
             </table>

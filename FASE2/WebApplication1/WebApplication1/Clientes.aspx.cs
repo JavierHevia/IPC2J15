@@ -228,5 +228,10 @@ namespace WebApplication1
             lbmostrarproducto.Text = "Praquete elegido: "+codigo;
 
         }
+
+        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

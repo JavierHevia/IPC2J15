@@ -140,7 +140,7 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
         </p>
-        <p style="height: 274px">&nbsp;</p>
+        <p style="height: 101px">&nbsp;</p>
         <p style="height: 351px">
             <asp:GridView ID="dvmodificaremp" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Empleado" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" style="font-size: small" Visible="False">
                 <AlternatingRowStyle BackColor="White" />
