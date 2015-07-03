@@ -165,6 +165,33 @@
             <asp:GridView ID="GridView2" runat="server" style="font-size: small">
             </asp:GridView>
         </p>
+        <p class="text-center">
+            Reportes</p>
+        <p style="height: 274px">
+            <table style="width:100%;">
+                <tr>
+                    <td style="height: 31px; width: 124px;">
+                        <asp:Button ID="brreporte1" runat="server" OnClick="brreporte1_Click" style="font-size: medium" Text="Reporte1" />
+                    </td>
+                    <td style="height: 31px; width: 116px;">
+                        <asp:Button ID="btreporte2" runat="server" OnClick="btreporte2_Click" style="font-size: medium" Text="Reporte2" />
+                    </td>
+                    <td style="height: 31px">
+                        <asp:Button ID="btreporte3" runat="server" style="font-size: medium" Text="Reporte3" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 124px">&nbsp;</td>
+                    <td style="width: 116px">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="width: 124px">&nbsp;</td>
+                    <td style="width: 116px">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </p>
         <p style="height: 15px">&nbsp;</p>
     </div>
 

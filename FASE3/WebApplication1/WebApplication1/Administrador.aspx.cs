@@ -180,6 +180,16 @@ namespace WebApplication1
 
         }
 
+        protected void brreporte1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reporte1.aspx");
+        }
+
+        protected void btreporte2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reporte2.aspx");
+        }
+
       
     
     
