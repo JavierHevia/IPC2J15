@@ -397,8 +397,8 @@
             <table style="width:100%;">
                 <tr>
                     <td style="font-size: medium; width: 280px"><strong>Factura ingresada por cliente</strong></td>
-                    <td style="width: 40px"><span style="font-size: medium"></td>
-                    <td><strong>Paquetes sin precio</strong></span></td>
+                    <td style="width: 154px"><span style="font-size: medium"></td>
+                    <td style="font-size: medium"><strong>Paquetes sin precio</strong></span></td>
                 </tr>
                 <tr>
                     <td style="width: 280px">
@@ -441,7 +441,7 @@
                             </UpdateParameters>
                         </asp:SqlDataSource>
                     </td>
-                    <td style="width: 40px">&nbsp;</td>
+                    <td style="width: 154px">&nbsp;</td>
                     <td>
                         <asp:GridView ID="GridView9" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Cod_Paquete" DataSourceID="SqlDataSource8" ForeColor="#333333" GridLines="None" style="font-size: small">
                             <AlternatingRowStyle BackColor="White" />
@@ -487,7 +487,7 @@
                     <td style="width: 280px">
                         <br />
                     </td>
-                    <td style="width: 40px">&nbsp;</td>
+                    <td style="width: 154px">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

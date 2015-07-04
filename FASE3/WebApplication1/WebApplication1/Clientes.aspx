@@ -186,9 +186,10 @@
         </p>
         <p style="height: 37px" class="text-center">Edición de su Información</p>
         <p style="height: 350px">
-            <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="199px" style="font-size: small" Width="436px" DataKeyNames="UsuarioC">
+            <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" Height="199px" style="font-size: small" Width="525px" DataKeyNames="UsuarioC">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                    <asp:CommandField ShowEditButton="True" />
                     <asp:BoundField DataField="NombreC" HeaderText="NombreC" SortExpression="NombreC" />
                     <asp:BoundField DataField="Direccion" HeaderText="Direccion" SortExpression="Direccion" />
                     <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
@@ -295,14 +296,6 @@
                     <tr>
                         <td style="width: 288px">
                             &nbsp;</td>
-                    </tr>
-                </table>
-            </p>
-            <p style="height: 153px">
-                <table style="width: 100%; height: 166px;">
-                    <tr>
-                        <td style="width: 374px">&nbsp;</td>
-                        <td>&nbsp;</td>
                     </tr>
                 </table>
             </p>
