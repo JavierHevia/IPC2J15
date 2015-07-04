@@ -168,16 +168,16 @@
         <p class="text-center">
             Reportes</p>
         <p style="height: 274px">
-            <table style="width:100%;">
+            <table>
                 <tr>
                     <td style="height: 31px; width: 124px;">
                         <asp:Button ID="brreporte1" runat="server" OnClick="brreporte1_Click" style="font-size: medium" Text="Reporte1" />
                     </td>
                     <td style="height: 31px; width: 116px;">
-                        <asp:Button ID="btreporte2" runat="server" OnClick="btreporte2_Click" style="font-size: medium" Text="Reporte2" />
+                        <asp:Button ID="btreporte" runat="server" style="font-size: medium" Text="Reporte2" OnClick="btreporte_Click" />
                     </td>
                     <td style="height: 31px">
-                        <asp:Button ID="btreporte3" runat="server" style="font-size: medium" Text="Reporte3" />
+                        <asp:Button ID="btreporte2" runat="server" OnClick="btreporte2_Click" style="font-size: medium" Text="Reporte3" />
                     </td>
                 </tr>
                 <tr>
@@ -187,7 +187,9 @@
                 </tr>
                 <tr>
                     <td style="width: 124px">&nbsp;</td>
-                    <td style="width: 116px">&nbsp;</td>
+                    <td style="width: 116px">
+                        <asp:Button ID="brreporte4" runat="server" style="font-size: medium" Text="Reporte 4" OnClick="brreporte4_Click" />
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

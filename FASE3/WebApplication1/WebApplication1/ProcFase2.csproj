@@ -169,6 +169,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Imagenes\Idiomas_de_américa.png" />
     <Content Include="Imagenes\mazdaspeed.jpg" />
+    <Content Include="Imagenes\mitsubishi-lancer-2015-review.jpg.jpg" />
     <Content Include="Imagenes\quetzal-logo.png" />
     <Content Include="Imagenes\quetzal_1-300x200.jpg" />
     <Content Include="Inicio.aspx" />
@@ -213,6 +214,8 @@
     </None>
     <Content Include="Reporte1.aspx" />
     <Content Include="Reporte2.aspx" />
+    <Content Include="Reporte3.aspx" />
+    <Content Include="Reporte4.aspx" />
     <Content Include="WebService1.asmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -411,6 +414,20 @@
     <Compile Include="Reporte2.aspx.designer.cs">
       <DependentUpon>Reporte2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reporte3.aspx.cs">
+      <DependentUpon>Reporte3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte3.aspx.designer.cs">
+      <DependentUpon>Reporte3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte4.aspx.cs">
+      <DependentUpon>Reporte4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporte4.aspx.designer.cs">
+      <DependentUpon>Reporte4.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -468,7 +485,9 @@
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
   </ItemGroup>
   <PropertyGroup>

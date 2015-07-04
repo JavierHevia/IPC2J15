@@ -634,7 +634,7 @@
         <Top>0.68474cm</Top>
         <Left>0.50813cm</Left>
         <Height>3.04354cm</Height>
-        <Width>14.65604cm</Width>
+        <Width>14.65603cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -799,7 +799,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte 2 "Empleados</Value>
+                  <Value>Reporte 3 "Empleados"</Value>
                   <Style>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>

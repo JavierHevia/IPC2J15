@@ -325,31 +325,10 @@
             <tr>
                 <td style="width: 170px">
                     <br />
-                    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:PFase2 %>" SelectCommand="SELECT [UsuarioC], [NombreC], [ApellidoC], [NoCasilla] FROM [Cliente] WHERE ([UsuarioC] LIKE '%' + @UsuarioC + '%')" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Cliente] WHERE [UsuarioC] = @original_UsuarioC AND [NombreC] = @original_NombreC AND [ApellidoC] = @original_ApellidoC AND (([NoCasilla] = @original_NoCasilla) OR ([NoCasilla] IS NULL AND @original_NoCasilla IS NULL))" InsertCommand="INSERT INTO [Cliente] ([UsuarioC], [NombreC], [ApellidoC], [NoCasilla]) VALUES (@UsuarioC, @NombreC, @ApellidoC, @NoCasilla)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Cliente] SET [NombreC] = @NombreC, [ApellidoC] = @ApellidoC, [NoCasilla] = @NoCasilla WHERE [UsuarioC] = @original_UsuarioC AND [NombreC] = @original_NombreC AND [ApellidoC] = @original_ApellidoC AND (([NoCasilla] = @original_NoCasilla) OR ([NoCasilla] IS NULL AND @original_NoCasilla IS NULL))">
-                        <DeleteParameters>
-                            <asp:Parameter Name="original_UsuarioC" Type="String" />
-                            <asp:Parameter Name="original_NombreC" Type="String" />
-                            <asp:Parameter Name="original_ApellidoC" Type="String" />
-                            <asp:Parameter Name="original_NoCasilla" Type="Int32" />
-                        </DeleteParameters>
-                        <InsertParameters>
-                            <asp:Parameter Name="UsuarioC" Type="String" />
-                            <asp:Parameter Name="NombreC" Type="String" />
-                            <asp:Parameter Name="ApellidoC" Type="String" />
-                            <asp:Parameter Name="NoCasilla" Type="Int32" />
-                        </InsertParameters>
+                    <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:PFase2 %>" SelectCommand="SELECT [UsuarioC], [NombreC], [ApellidoC], [NoCasilla], [Telefono] FROM [Cliente] WHERE ([NombreC] LIKE '%' + @NombreC + '%')" OldValuesParameterFormatString="original_{0}" OnSelecting="SqlDataSource7_Selecting">
                         <SelectParameters>
-                            <asp:ControlParameter ControlID="txtbuscar" Name="UsuarioC" PropertyName="Text" Type="String" />
+                            <asp:ControlParameter ControlID="txtbuscar" Name="NombreC" PropertyName="Text" Type="String" />
                         </SelectParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="NombreC" Type="String" />
-                            <asp:Parameter Name="ApellidoC" Type="String" />
-                            <asp:Parameter Name="NoCasilla" Type="Int32" />
-                            <asp:Parameter Name="original_UsuarioC" Type="String" />
-                            <asp:Parameter Name="original_NombreC" Type="String" />
-                            <asp:Parameter Name="original_ApellidoC" Type="String" />
-                            <asp:Parameter Name="original_NoCasilla" Type="Int32" />
-                        </UpdateParameters>
                     </asp:SqlDataSource>
                 </td>
                 <td style="width: 201px">
@@ -360,6 +339,7 @@
                             <asp:BoundField DataField="NombreC" HeaderText="NombreC" SortExpression="NombreC" />
                             <asp:BoundField DataField="ApellidoC" HeaderText="ApellidoC" SortExpression="ApellidoC" />
                             <asp:BoundField DataField="NoCasilla" HeaderText="NoCasilla" SortExpression="NoCasilla" />
+                            <asp:BoundField DataField="Telefono" HeaderText="Telefono" SortExpression="Telefono" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -422,7 +402,7 @@
                 </tr>
                 <tr>
                     <td style="width: 280px">
-                        <asp:GridView ID="GridView8" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="UsuarioC" DataSourceID="SqlDataSource6" ForeColor="#333333" GridLines="None" style="font-size: small">
+                        <asp:GridView ID="GridView8" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="UsuarioC" DataSourceID="SqlDataSource6" ForeColor="#333333" GridLines="None" style="font-size: small" Width="224px">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:BoundField DataField="UsuarioC" HeaderText="UsuarioC" ReadOnly="True" SortExpression="UsuarioC" />

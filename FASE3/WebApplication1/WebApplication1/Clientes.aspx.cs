@@ -20,7 +20,7 @@ namespace WebApplication1
         public string codigo;
         protected void Page_Load(object sender, EventArgs e)
         {
-          //txtnombre.Text = Session["Usuario"].ToString();
+          txtnombre.Text = Session["Usuario"].ToString();
 
 
 
@@ -195,7 +195,7 @@ namespace WebApplication1
             //lblink.Text = linkimagen;
             fuimagenfactura.SaveAs(Server.MapPath("Imagenes\\" + fuimagenfactura.FileName + ".jpg"));
 
-            lblink.Text = "/"+fuimagenfactura.FileName;
+            lblink.Text = fuimagenfactura.FileName;
             //servicio.FacturaImagen(txtnombre.Text,linkimagen);
 
             servicio.FacturaImagen(txtnombre.Text,lblink.Text);

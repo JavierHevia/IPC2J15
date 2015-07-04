@@ -10,7 +10,7 @@
 namespace WebApplication1 {
     
     
-    public partial class Reporte1 {
+    public partial class Reporte4 {
         
         /// <summary>
         /// Control ReportViewer1.

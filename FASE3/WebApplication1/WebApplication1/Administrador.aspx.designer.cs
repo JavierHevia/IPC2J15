@@ -157,6 +157,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button brreporte1;
         
         /// <summary>
+        /// Control btreporte.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btreporte;
+        
+        /// <summary>
         /// Control btreporte2.
         /// </summary>
         /// <remarks>
@@ -166,12 +175,12 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button btreporte2;
         
         /// <summary>
-        /// Control btreporte3.
+        /// Control brreporte4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btreporte3;
+        protected global::System.Web.UI.WebControls.Button brreporte4;
     }
 }
