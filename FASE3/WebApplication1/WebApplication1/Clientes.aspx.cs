@@ -193,10 +193,11 @@ namespace WebApplication1
 
             //String linkimagen = Server.MapPath(fuimagenfactura.FileName);
             //lblink.Text = linkimagen;
+            //servicio.FacturaImagen(txtnombre.Text,linkimagen);
             fuimagenfactura.SaveAs(Server.MapPath("Imagenes\\" + fuimagenfactura.FileName + ".jpg"));
 
             lblink.Text = fuimagenfactura.FileName;
-            //servicio.FacturaImagen(txtnombre.Text,linkimagen);
+           
 
             servicio.FacturaImagen(txtnombre.Text,lblink.Text);
 

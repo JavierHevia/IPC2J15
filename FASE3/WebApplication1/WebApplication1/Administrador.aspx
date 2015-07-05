@@ -7,19 +7,23 @@
             <asp:Label ID="Label1" runat="server" style="color: #FF3300" Text="¡Bienvenido Admnistrador!"></asp:Label>
         </p>
             <p style="height: 334px; width: 728px;">
-            <asp:SqlDataSource ID="sqdimpuesto" runat="server" ConnectionString="<%$ ConnectionStrings:PFase2 %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Impuesto]" DeleteCommand="DELETE FROM [Impuesto] WHERE [Categoria] = @original_Categoria" InsertCommand="INSERT INTO [Impuesto] ([Categoria], [Impuesto], [Estado]) VALUES (@Categoria, @Impuesto, @Estado)" UpdateCommand="UPDATE [Impuesto] SET [Impuesto] = @Impuesto, [Estado] = @Estado WHERE [Categoria] = @original_Categoria">
+            <asp:SqlDataSource ID="sqdimpuesto" runat="server" ConnectionString="<%$ ConnectionStrings:PFase2 %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Impuesto]" DeleteCommand="DELETE FROM [Impuesto] WHERE [TipoImpuesto] = @original_TipoImpuesto AND (([Impuesto] = @original_Impuesto) OR ([Impuesto] IS NULL AND @original_Impuesto IS NULL)) AND (([Estado] = @original_Estado) OR ([Estado] IS NULL AND @original_Estado IS NULL))" InsertCommand="INSERT INTO [Impuesto] ([TipoImpuesto], [Impuesto], [Estado]) VALUES (@TipoImpuesto, @Impuesto, @Estado)" UpdateCommand="UPDATE [Impuesto] SET [Impuesto] = @Impuesto, [Estado] = @Estado WHERE [TipoImpuesto] = @original_TipoImpuesto AND (([Impuesto] = @original_Impuesto) OR ([Impuesto] IS NULL AND @original_Impuesto IS NULL)) AND (([Estado] = @original_Estado) OR ([Estado] IS NULL AND @original_Estado IS NULL))" ConflictDetection="CompareAllValues">
                 <DeleteParameters>
-                    <asp:Parameter Name="original_Categoria" Type="String" />
+                    <asp:Parameter Name="original_TipoImpuesto" Type="String" />
+                    <asp:Parameter Name="original_Impuesto" Type="Int32" />
+                    <asp:Parameter Name="original_Estado" Type="String" />
                 </DeleteParameters>
                 <InsertParameters>
-                    <asp:Parameter Name="Categoria" Type="String" />
+                    <asp:Parameter Name="TipoImpuesto" Type="String" />
                     <asp:Parameter Name="Impuesto" Type="Int32" />
                     <asp:Parameter Name="Estado" Type="String" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="Impuesto" Type="Int32" />
                     <asp:Parameter Name="Estado" Type="String" />
-                    <asp:Parameter Name="original_Categoria" Type="String" />
+                    <asp:Parameter Name="original_TipoImpuesto" Type="String" />
+                    <asp:Parameter Name="original_Impuesto" Type="Int32" />
+                    <asp:Parameter Name="original_Estado" Type="String" />
                 </UpdateParameters>
                 </asp:SqlDataSource>
             <table style="width: 100%; height: 272px;">
@@ -34,16 +38,16 @@
                 </tr>
                 <tr>
                     <td style="height: 92px; width: 590px">
-                        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="Categoria" DataSourceID="sqdimpuesto" ForeColor="#333333" GridLines="None" Height="50px" style="font-size: small" Width="125px">
+                        <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateRows="False" CellPadding="4" DataKeyNames="TipoImpuesto" DataSourceID="sqdimpuesto" ForeColor="#333333" GridLines="None" Height="50px" style="font-size: small" Width="125px">
                             <AlternatingRowStyle BackColor="White" />
                             <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
                             <EditRowStyle BackColor="#2461BF" />
                             <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
                             <Fields>
-                                <asp:BoundField DataField="Categoria" HeaderText="Categoria" ReadOnly="True" SortExpression="Categoria" />
+                                <asp:BoundField DataField="TipoImpuesto" HeaderText="TipoImpuesto" ReadOnly="True" SortExpression="TipoImpuesto" />
                                 <asp:BoundField DataField="Impuesto" HeaderText="Impuesto" SortExpression="Impuesto" />
                                 <asp:BoundField DataField="Estado" HeaderText="Estado" SortExpression="Estado" />
-                                <asp:CommandField ShowInsertButton="True" ShowDeleteButton="True" ShowEditButton="True" />
+                                <asp:CommandField ShowEditButton="True" ShowInsertButton="True" />
                             </Fields>
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -166,7 +170,7 @@
             </asp:GridView>
         </p>
         <p class="text-center">
-            Reportes</p>
+            Reportes Informales</p>
         <p style="height: 274px">
             <table>
                 <tr>
@@ -178,19 +182,32 @@
                     </td>
                     <td style="height: 31px">
                         <asp:Button ID="btreporte2" runat="server" OnClick="btreporte2_Click" style="font-size: medium" Text="Reporte3" />
+                    &nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="brreporte4" runat="server" style="font-size: medium" Text="Reporte 4" OnClick="brreporte4_Click" />
                     </td>
                 </tr>
                 <tr>
                     <td style="width: 124px">&nbsp;</td>
                     <td style="width: 116px">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reportes Formales</p>
+                        <p>
+                            &nbsp;</p>
+                    </td>
                 </tr>
                 <tr>
-                    <td style="width: 124px">&nbsp;</td>
-                    <td style="width: 116px">
-                        <asp:Button ID="brreporte4" runat="server" style="font-size: medium" Text="Reporte 4" OnClick="brreporte4_Click" />
+                    <td style="width: 124px">
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="font-size: medium" Text="Reporte1" />
                     </td>
-                    <td>&nbsp;</td>
+                    <td style="width: 116px">
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" style="font-size: medium" Text="Reporte2" />
+                    </td>
+                    <td>
+                        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" style="font-size: medium" Text="Reporte3" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" style="font-size: medium" Text="Reporte4" />
+                    </td>
                 </tr>
             </table>
         </p>
